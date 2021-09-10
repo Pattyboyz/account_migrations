@@ -44,6 +44,7 @@ connection.connect(async (err) => {
         if (err) { return sendLog(err); }
         if (result.length <= 0) { return sendLog(`Cannot fetching accounts (result 0 length)`); }
 
+        // Setting-up user account object and insert black money in to obj
         for (const data of result) {
             userAccounts[data.identifier] = {
                 ['money']: 0,
@@ -56,7 +57,7 @@ connection.connect(async (err) => {
         await delay(1000);
 
         for (const identifier in userAccounts) {
-            // Fetching Accounts (Black Money)
+            // Fetching Accounts (Money, Bank)
             connection.query(`SELECT name, money, bank FROM users WHERE identifier = '${identifier}'`, async (err, result) => {
                 if (err) { return sendLog(err); }
                 if (result.length <= 0) { return sendLog(`Cannot fetching accounts (0 length) [${identifier}]`); }
