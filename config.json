@@ -1,0 +1,7 @@
+{
+    "mysql": {
+        "host": "localhost",
+        "user": "root",
+        "database": "losnuuly_base"
+    }
+}
