@@ -22,13 +22,6 @@ const objectSize = (obj) => {
 
 const userAccounts = [];
 
-// First, We fetch black money from user_account.
-// Next, We keep black money amount in to account object and set default money, bank to 0.
-// Next, We for loop account object and fetch name, money, bank by identifier.
-// Next, We keep the result in account object.
-// Next, We insert the account object in to user accounts by identifier.
-// Done :)
-
 // Connecting to mysql on node running
 connection.connect(async (err) => {
     if (err) { return sendLog(err); }
